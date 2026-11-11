@@ -4,7 +4,7 @@ A native, cross-platform pixel-art editor for Aseprite files (`.aseprite` / `.as
 
 ```sh
 cargo run --release                       # start with the welcome screen
-cargo run --release -- The_Dude.aseprite  # open files directly
+cargo run --release -- tests/fixtures/The_Dude.aseprite  # open files directly
 cargo test                                # file-format round-trips + simulated editing sessions
 ```
 

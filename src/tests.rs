@@ -206,7 +206,7 @@ fn sprite_transforms_and_frames() {
 
 #[test]
 fn groups_and_layer_moves_on_sample() {
-    let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("The_Dude.aseprite");
+    let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/The_Dude.aseprite");
     let mut a = App::base();
     let ctx = egui::Context::default();
     a.open_path(&path);
@@ -255,7 +255,7 @@ fn edit_and_save_real_file_to_disk() {
     std::fs::create_dir_all(&dir).unwrap();
     let path = dir.join("copy.aseprite");
     std::fs::copy(
-        std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("The_Dude_in_Air.aseprite"),
+        std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/The_Dude_in_Air.aseprite"),
         &path,
     )
     .unwrap();
@@ -282,7 +282,7 @@ fn exports_and_image_import() {
     let root = std::path::Path::new(env!("CARGO_MANIFEST_DIR"));
     let dir = root.join("target/test-tmp/export");
     std::fs::create_dir_all(&dir).unwrap();
-    let (s, _) = ase::load(&std::fs::read(root.join("The_Dude_in_Air.aseprite")).unwrap()).unwrap();
+    let (s, _) = ase::load(&std::fs::read(root.join("tests/fixtures/The_Dude_in_Air.aseprite")).unwrap()).unwrap();
     export::save_png(&dir.join("frame.png"), &s.composite(2), 2).unwrap();
     let back = export::import_image(&dir.join("frame.png")).unwrap();
     assert_eq!((back.w, back.h), (256, 256));

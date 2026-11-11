@@ -804,7 +804,7 @@ mod tests {
     use super::*;
 
     fn samples() -> Vec<std::path::PathBuf> {
-        let mut v: Vec<_> = std::fs::read_dir(env!("CARGO_MANIFEST_DIR"))
+        let mut v: Vec<_> = std::fs::read_dir(concat!(env!("CARGO_MANIFEST_DIR"), "/tests/fixtures"))
             .unwrap()
             .filter_map(|e| e.ok().map(|e| e.path()))
             .filter(|p| p.extension().is_some_and(|e| e == "aseprite" || e == "ase"))
