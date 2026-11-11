@@ -1,7 +1,8 @@
 [package]
 name = "asetea"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2024"
+license = "MIT"
 
 [dependencies]
 eframe = { version = "0.33", features = ["persistence"] }
